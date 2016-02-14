@@ -116,7 +116,7 @@ let g:NERDTreeWinPos="right"
 nnoremap <leader>n :NERDTree .<CR>
 let g:NERDTreeShowBookmarks=1
 
-noremap <silent> <A-Up> :wincmd k<CR>
-noremap <silent> <A-Down> :wincmd j<CR>
-noremap <silent> <A-Left> :wincmd h<CR>
-noremap <silent> <A-Right> :wincmd l<CR>
+map <leader>h :wincmd h<CR>
+map <leader>j :wincmd j<CR>
+map <leader>k :wincmd k<CR>
+map <leader>l :wincmd l<CR>

@@ -13,16 +13,17 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'flazz/vim-colorschemes'
-"Plugin 'fatih/vim-go'
+Plugin 'fatih/vim-go'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-"Plugin 'mhinz/vim-signify'
-"Plugin 'airblade/vim-gitgutter'
+Plugin 'mhinz/vim-signify'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'majutsushi/tagbar'
 "Plugin 'honza/vim-snippets'
-"Plugin 'nathanaelkane/vim-indent-guides'
-"Plugin 'easymotion/vim-easymotion'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'easymotion/vim-easymotion'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-obsession'
 
 "html coding
 "Plugin 'mattn/emmet-vim'
@@ -46,7 +47,20 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
-set lines=999 columns=100
+set guifont=Source\ Code\ Pro\ for\ Powerline
+if has("gui_running")
+  " GUI is running or is about to start.
+  " Maximize gvim window (for an alternative on Windows, see simalt below).
+  set lines=999 columns=999
+else
+  " This is console Vim.
+  if exists("+lines")
+    set lines=50
+  endif
+  if exists("+columns")
+    set columns=100
+  endif
+endif
 
 set number
 
@@ -57,13 +71,32 @@ augroup myvimrchooks
 augroup END
 
 "color
-colorscheme codeschool
+set background=dark
+syntax enable
+colorscheme solarized
 
+" Use spaces, damn it!
+set expandtab
+set smarttab
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set autoindent
+set nowrap
+set textwidth=0
+
+set laststatus=2
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#show_tag_nr=1
 let g:airline#extensions#tabline#show_tab_type=1
-
+let g:airline_theme='solarized'
 let g:airline#extensions#tabline#buffer_idx_mode = 1
+" air-line
+let g:airline_powerline_fonts = 1
+"
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
 nmap <leader>1 <Plug>AirlineSelectTab1
 nmap <leader>2 <Plug>AirlineSelectTab2
 nmap <leader>3 <Plug>AirlineSelectTab3
@@ -83,7 +116,7 @@ let g:NERDTreeWinPos="right"
 nnoremap <leader>n :NERDTree .<CR>
 let g:NERDTreeShowBookmarks=1
 
-nmap <silent> <A-Up> :wincmd k<CR>
-nmap <silent> <A-Down> :wincmd j<CR>
-nmap <silent> <A-Left> :wincmd h<CR>
-nmap <silent> <A-Right> :wincmd l<CR>
+noremap <silent> <A-Up> :wincmd k<CR>
+noremap <silent> <A-Down> :wincmd j<CR>
+noremap <silent> <A-Left> :wincmd h<CR>
+noremap <silent> <A-Right> :wincmd l<CR>

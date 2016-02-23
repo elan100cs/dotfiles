@@ -11,7 +11,9 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'scrooloose/nerdtree'
-Plugin 'Valloric/YouCompleteMe'
+" Commented to test javacomplete
+"Plugin 'Valloric/YouCompleteMe'
+Plugin 'artur-shaik/vim-javacomplete2'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'fatih/vim-go'
 Plugin 'vim-airline/vim-airline'
@@ -19,11 +21,14 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'mhinz/vim-signify'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'majutsushi/tagbar'
-"Plugin 'honza/vim-snippets'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-obsession'
+Plugin 'Shougo/neocomplete.vim'
+Plugin 'Shougo/echodoc.vim'
 
 "html coding
 "Plugin 'mattn/emmet-vim'
@@ -120,3 +125,27 @@ map <leader>h :wincmd h<CR>
 map <leader>j :wincmd j<CR>
 map <leader>k :wincmd k<CR>
 map <leader>l :wincmd l<CR>
+
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
+let g:neocomplete#data_directory = "~/.vim/tmp/swap"
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+
+" Enable heavy omni completion.
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+
+" golang fix
+let g:neocomplete#sources#omni#input_patterns.go = '[^.[:digit:] *\t]\.\w*'
+let g:echodoc_enable_at_startup = 1
+set completeopt+=menuone
+set completeopt-=preview
+set cmdheight=2
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"

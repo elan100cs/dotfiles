@@ -29,6 +29,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-obsession'
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'Shougo/echodoc.vim'
+Plugin 'christoomey/vim-tmux-navigator'
 
 "html coding
 "Plugin 'mattn/emmet-vim'

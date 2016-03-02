@@ -52,7 +52,7 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
-set guifont=Source\ Code\ Pro\ for\ Powerline
+set guifont=Sauce\ Code\ Powerline\ Black
 if has("gui_running")
   " GUI is running or is about to start.
   " Maximize gvim window (for an alternative on Windows, see simalt below).
@@ -76,6 +76,7 @@ augroup myvimrchooks
 augroup END
 
 "color
+let g:solarized_termcolors=256
 set background=dark
 syntax enable
 colorscheme solarized
@@ -149,3 +150,5 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+
+

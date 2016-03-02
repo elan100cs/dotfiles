@@ -68,3 +68,7 @@ parse_git_branch () {
 }
 
 PS1="\[${BOLD}${CYAN}\]\u \[$BASE0\]at \[$ORANGE\]\h \[$BASE0\]in \[$BLUE\]\w\[$BASE0\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$YELLOW\]\$(parse_git_branch)\[$BASE0\]\n\$ \[$RESET\]"
+
+tmux attach -t base || tmux new -s base
+
+[ -f "/usr/local/Cellar/vim/7.4.1401/bin/vim" ] && alias vim="/usr/local/Cellar/vim/7.4.1401/bin/vim"
